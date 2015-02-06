@@ -47,7 +47,7 @@ module.exports = {
 ```
 Note that our file structure is set up in such a way that our ```app``` folder will be used for our React components and webpack will take those components, transform them, bundle them, and output them to our public folder where our ```index.html``` file is located. 
 
-###Step 2: Our First Component
+###Step 3: Our First Component
 * Head over to your index.html page and add the following code.
 ```html
 <!DOCTYPE html>
