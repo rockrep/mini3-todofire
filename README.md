@@ -26,5 +26,24 @@ Notice we haven't included any CSS. Because this project is rather small (and be
 
 
 ###Step 2: Configuring Webpack
-* 
+* As we talked about in the lecture, Webpack is a super powerful tool that can do a lot. Starting out though, we'll just use Webpack to transform our JSX to JS. 
+* We're going to give our Webpack config file three things. 
+  - The entry point where our main parent component is located.
+  - Our JSX loader which will do the converting from JSX to JS
+  - An output path of where to put our new bundled/transformed React code.
+* Head over to your webpack.config.js file and add the following code. 
+```javascript
+module.exports = {
+  entry: "./app/App.js",
+  output: {
+    filename: "public/bundle.js"
+  },
+  module: {
+    loaders: [
+      {test: /\.js$/, loader: 'jsx-loader'}
+    ]
+  }
+};
+```
+Note that our file structure is set up in such a way that our ```app``` folder will be used for our React components and webpack will take those components, transform them, bundle them, and output them to our public folder where our ```index.html``` file is located. 
 
