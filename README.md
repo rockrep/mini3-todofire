@@ -47,3 +47,27 @@ module.exports = {
 ```
 Note that our file structure is set up in such a way that our ```app``` folder will be used for our React components and webpack will take those components, transform them, bundle them, and output them to our public folder where our ```index.html``` file is located. 
 
+###Step 2: Our First Component
+* Head over to your index.html page and add the following code.
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Bootstrap Todo List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
+```
+Notice its pretty normal. We've included bootstrap and we're added an element with an id of app. We'll render our App component to this html element later in our App.js file.
+
+* Before we start building our app, let's head over to our App.js file and create our first component in order to make sure everything is working correctly. 
+* In App.js require 'react' and save it into a variable called React.
+* Create a component that all is does is render "Hello World!" to the page and save that into a variable called ```App```
+* Now, use ```React.render``` to render your ```<App />``` component to the app element in your index.html page.
+* Head over to your terminal and tell webpack to build and watch your files using ```webpack -w```. 
+* Open up your ```index.html``` and verify that you see ```Hello World!``` and you're getting no errors in the console. 
+* If you are getting errors, debug. If you get stuck, flag down a mentor.
