@@ -71,3 +71,43 @@ Notice its pretty normal. We've included bootstrap and we're added an element wi
 * Head over to your terminal and tell webpack to build and watch your files using ```webpack -w```. 
 * Open up your ```index.html``` and verify that you see ```Hello World!``` and you're getting no errors in the console. 
 * If you are getting errors, debug. If you get stuck, flag down a mentor.
+
+Your current App.js file should look like this.
+
+```javascript
+var React = require('react');
+
+var App = React.createClass({
+  render: function(){
+    return (
+      <div>
+        Hello World
+      </div>
+    )
+  }
+});
+
+React.render(
+  <App />,
+  document.getElementById('app')
+)
+```
+
+###Step 4: More Components
+* Now that our build process is up and running, let's crank out the rest of our directives. 
+* We're going to be making four components all together. Here is a list of all of them with their purpose and how they fit into our app hierarchy. 
+```
+├── App
+│   ├── ListContainer
+│   ├-─ ├── AddItem
+│   ├-─ ├── List
+```
+
+Visually represented that looks like this. 
+![React Components Visualized](http://tylermcginnis.com/ReactWeek/todo-react-components.png)
+The darker the red the more nested the components are. 
+ - App is our overall component
+ - ListContainer is the component of our todolist and the lists title
+ - AddItem is the component of the input box
+ - List is the component of every item in the list
+
