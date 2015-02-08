@@ -5,7 +5,7 @@ Mini Project 1: Todo List
 The purpose of this Mini Project is to get you used to getting started from scratch with React and Webpack. You'll be building a very basic Todo App (LINK HERE) in React. This app should be the perfect introduction to the material that was covered earlier. This app will have multiple components, some of those components will have their own state, you'll be passing data down as props, and you'll have your own events. 
 
 ###Step 1: Create the Structure for Your Application
-* Go ahead and create a folder structure that looks like this including the files. (If you're opinionted about your folder structure, feel free to experiment what works best for you).
+* Go ahead and create a folder structure that looks like this including the files. (If you're opinionated about your folder structure, feel free to experiment what works best for you).
 ```
 ├── webpack.config.js
 ├── app/
@@ -22,8 +22,8 @@ Notice we haven't included any CSS. Because this project is rather small (and be
 
 We're only going to need one dependency and two dev dependencies for our project. 
 
-* In that same root location you were at before run ```npm install --save react```. This will grab React from NPM and save it into a newly created node_modules folder in the root of your directory. This also tells your package.json file that React is a dependecy that's neccessary for the app to run. 
-* Once again in the same root directory run ```npm install --save-dev webpack``` and ```npm install --save-dev jsx-loader``` these commands will install webpack and jsx-loader inside our node_modules folder while letting our package.json file know that both of these are developer depedencies are required to develop but not the run the actual app. 
+* In that same root location you were at before run ```npm install --save react```. This will grab React from NPM and save it into a newly created node_modules folder in the root of your directory. This also tells your package.json file that React is a dependency that's necessary for the app to run. 
+* Once again in the same root directory run ```npm install --save-dev webpack``` and ```npm install --save-dev jsx-loader``` these commands will install webpack and jsx-loader inside our node_modules folder while letting our package.json file know that both of these are developer dependencies are required to develop but not the run the actual app. 
 
 Now that the basic skeleton of our app is ready, let's head over to our ```webpack.config.js``` file and fill that out.
 
@@ -174,7 +174,7 @@ module.exports = AddItem;
 
 ###Step 5: List Component
 
-The next component we're going to build is our List component. Our list component is going to be our unordered list of every item in our todo list. Rememeber, the component which is managing the state of our list ListComponent's parent component (ListContainer). From our ListContainer component we'll pass in the todolist as props to our List component. Our CSS will be entirely contained as an object in this component. Let's go ahead and add that now.
+The next component we're going to build is our List component. Our List component is going to be our unordered list of every item in our todo list. Rememeber, the component which is managing the state of our list is ListComponent's parent component (ListContainer). From our ListContainer component we'll pass in the todolist as props to our List component. Our CSS will be entirely contained as an object in this component. Let's go ahead and add that now.
 
 * Create a ```render``` method. Inside that render method go ahead and add this object as a variable inside of ```render```. 
 ```javascvript
@@ -289,7 +289,7 @@ This component is going to have keep track of our overall todo list array.
 
 * use ```getInitialState``` and return a ```list``` property whose value is an empty array.
 
-Now that our intial list is set up, we're going to have two helper methods. One called ```handleAddItem``` which takes in a new item and adds that to our ```list``` array and the other a ```handleRemoveItem``` which takes in an index and removes that specific index from our ```list``` array.
+Now that our initial list is set up, we're going to have two helper methods. One called ```handleAddItem``` which takes in a new item and adds that to our ```list``` array and the other a ```handleRemoveItem``` which takes in an index and removes that specific index from our ```list``` array.
 
 * create the ```handleAddItem``` method which takes in an item as its parameter and then resets the ```list``` state adding that new item to the list. **remember, you should treat your state as if it's immutable. Don't do this ```this.state.list.push(newItem)```, instead play with using ```this.setState```**.
 * create a ```handleRemoveItem``` method that takes in an index then splices that index out of our ```list``` state. **again don't all splice directly on ```this.state.list```, instead create a reference to ```this.state.list``` and splice that then reset the ```list``` state with that new spliced array.
@@ -357,7 +357,7 @@ module.exports = ListContainer;
 
 ###Step 7: App Component
 
-Now's the easy part. Our App component is just going to be where we wrap our ```ListContainer``` component in a few bootstrap divs and then use ```React.render``` to rener our App to our ```#app``` element. 
+Now is the easy part. Our App component is just going to be where we wrap our ```ListContainer``` component in a few bootstrap divs and then use ```React.render``` to render our App to our ```#app``` element. 
 
 * Require ```react``` and ```ListContainer```.
 * Create a component called ```App``` then outside of the component use ```React.render``` to render ```<App />``` to the element with an id of ```app```. 
@@ -389,4 +389,4 @@ React.render(
 
 That's it! If you've had webpack running head over to your browser and load the index.html page. You should have a very basic todoapp running with React. 
 
-If this mini project was a little slow for you, good. That's the point. As mentioned before, the Mini Projects are supposed to be very hand holdy while the actual projects arent. If you're on the opposite end and you're struggling with anything we've covered or talked about, now would be a really good time to flag down a mentor and get some extra help. We're here to help you, use us.
+If this mini project was a little slow for you, good. That's the point. As mentioned before, the Mini Projects are supposed to be very hand holdy while the actual projects aren't. If you're on the opposite end and you're struggling with anything we've covered or talked about, now would be a really good time to flag down a mentor and get some extra help. We're here to help you, use us.
