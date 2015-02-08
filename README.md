@@ -278,7 +278,7 @@ return (
 
 Again I realize this section was super wordy. If something doesn't make sense, there are mentors here to help. 
 
-###Step 5: ListContainer Component
+###Step 6: ListContainer Component
 
 The first thing you'll need to do is require react, our AddItem component, and our List component because we'll be rendering both of those inside our render method.
 
@@ -355,3 +355,38 @@ var ListContainer = React.createClass({
 module.exports = ListContainer;
 ```
 
+###Step 7: App Component
+
+Now's the easy part. Our App component is just going to be where we wrap our ```ListContainer``` component in a few bootstrap divs and then use ```React.render``` to rener our App to our ```#app``` element. 
+
+* Require ```react``` and ```ListContainer```.
+* Create a component called ```App``` then outside of the component use ```React.render``` to render ```<App />``` to the element with an id of ```app```. 
+* Create a render method which has two nested divs. The first div should have a ```className``` of ```container``` and the nested one should have a ```className``` or ```row```. That's just for our bootstrap styling
+* Inside of ```row``` render the ```ListContainer``` component.
+
+Your final App.js file should look like this.
+```html
+var React = require('react');
+var ListContainer = require('./ListContainer');
+
+var App = React.createClass({
+  render: function(){
+    return (
+      <div className="container">
+        <div className="row">
+          <ListContainer />
+        </div>
+      </div>
+    )
+  }
+});
+
+React.render(
+  <App />,
+  document.getElementById('app')
+)
+```
+
+That's it! If you've had webpack running head over to your browser and load the index.html page. You should have a very basic todoapp running with React. 
+
+If this mini project was a little slow for you, good. That's the point. As mentioned before, the Mini Projects are supposed to be very hand holdy while the actual projects arent. If you're on the opposite end and you're struggling with anything we've covered or talked about, now would be a really good time to flag down a mentor and get some extra help. We're here to help you, use us.
