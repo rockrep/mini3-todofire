@@ -279,3 +279,79 @@ return (
 Again I realize this section was super wordy. If something doesn't make sense, there are mentors here to help. 
 
 ###Step 5: ListContainer Component
+
+The first thing you'll need to do is require react, our AddItem component, and our List component because we'll be rendering both of those inside our render method.
+
+* Require react, the AddItem component, and the List component.
+* Create a component called ListContainer and then use ```module.exports``` to export it at the end of the file.
+
+This component is going to have keep track of our overall todo list array. 
+
+* use ```getInitialState``` and return a ```list``` property whose value is an empty array.
+
+Now that our intial list is set up, we're going to have two helper methods. One called ```handleAddItem``` which takes in a new item and adds that to our ```list``` array and the other a ```handleRemoveItem``` which takes in an index and removes that specific index from our ```list``` array.
+
+* create the ```handleAddItem``` method which takes in an item as its parameter and then resets the ```list``` state adding that new item to the list. **remember, you should treat your state as if it's immutable. Don't do this ```this.state.list.push(newItem)```, instead play with using ```this.setState```**.
+* create a ```handleRemoveItem``` method that takes in an index then splices that index out of our ```list``` state. **again don't all splice directly on ```this.state.list```, instead create a reference to ```this.state.list``` and splice that then reset the ```list``` state with that new spliced array.
+
+Now that we have our helper methods set up we need to use ```render``` to specify what the UI will look like. I'll give you the intial UI at first because it's a lot of bootstrap markup then you can render the ```AddItem``` and ```List``` component. 
+
+```html
+  render: function(){
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-6 col-md-offset-3">
+            <h3 className="text-center"> Todo List </h3>
+            <!-- AddItem goes here. * Make sure you pass it the handleAddItem method we made above as 'add' -->
+            <!-- List goes here. * Make sure you pass it the list as 'items' and the handleRemoveItem as remove -->
+          </div>
+        </div>
+      </div>
+    )
+  }
+```
+
+After you get done with the above your ```ListContainer.js``` file should look like this.
+```javascript
+var React = require('react');
+var AddItem = require('./AddItem');
+var List = require('./List');
+
+var ListContainer = React.createClass({
+  getInitialState: function(){
+    return {
+      list: []
+    }
+  },
+  handleAddItem: function(newItem){
+    this.setState({
+      list: this.state.list.concat([newItem])
+    });
+  },
+  handleRemoveItem: function(index){
+    var newList = this.state.list;
+    newList.splice(index, 1);
+    this.setState({
+      list: newList
+    })
+  },
+  render: function(){
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-6 col-md-offset-3">
+            <h3 className="text-center"> Todo List </h3>
+            <AddItem add={this.handleAddItem}/>
+            <List items={this.state.list} remove={this.handleRemoveItem}/>
+          </div>
+        </div>
+      </div>
+
+    )
+  }
+});
+
+module.exports = ListContainer;
+```
+
