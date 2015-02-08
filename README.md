@@ -173,3 +173,109 @@ module.exports = AddItem;
 ```
 
 ###Step 5: List Component
+
+The next component we're going to build is our List component. Our list component is going to be our unordered list of every item in our todo list. Rememeber, the component which is managing the state of our list ListComponent's parent component (ListContainer). From our ListContainer component we'll pass in the todolist as props to our List component. Our CSS will be entirely contained as an object in this component. Let's go ahead and add that now.
+
+* Create a ```render``` method. Inside that render method go ahead and add this object as a variable inside of ```render```. 
+```javascvript
+var styles = {
+  uList: {
+    paddingLeft: 0,
+    listStyleType: "none"
+  },
+  listGroup: {
+    margin: '5px 0',
+    borderRadius: 5
+  },
+  removeItem: {
+    fontSize: 20,
+    float: "left",
+    position: "absolute",
+    top: 12,
+    left: 6,
+    cursor: "pointer",
+    color: "rgb(222, 79, 79)"
+  },
+  todoItem: {
+    paddingLeft: 20,
+    fontSize: 17
+  }
+};
+```
+All this is is it's the styling for this component. 
+
+Now that we have our render method and basic styles, let's create an array of ```<li>``` tag that contain a X icon to delete the item and also the items text. Usually how you would do this is to have a for loop which loops over every item in the list. With React however it's common practice to use the built in map method. All map does is it iterates over a list and returns you an array after modifying every item in that list. As mentioned earlier we'll use map to create our list of ```<li>``` tags for our list.
+
+* create a variable called ```listItems``` which is going to be the result of mapping over ```this.props.items```. A few tips
+  - Your ```<li>``` element will need to have a ```className``` of ```list-group-item``` and a style of ```{styles.listGroup}```.
+  - Inside the ```<li>``` tag you'll have two span elements. The first one will have a className of ```glyphicon glyphicon-remove``` a ```style``` attribute of ```{styles.removeItem}``` and a ```onClick``` handler which will be bound to a ```remove``` method which is going to be coming in as a prop from the parent component. You'll need to use ```bind``` and pass in ```null``` and the ```index``` from the paremeters of your map function. The second span element will have a ```style``` of ```{styles.todoItem}``` and will just have the actual ```{item}``` itself inside the span. 
+  - The last gotcha is that when we use map, they keyword ```this``` is no longer bound to what it was initially. In order to fix this you'll have to add ```.bind(this)``` on the end of your map invokation in order to keep the keyword ```this``` bound to what it is bound to outside of the map function. 
+
+I realize all of that was super wordy. Here's what you're List.js file should look like up to this point. 
+
+```javascript
+var React = require('react');
+
+var List = React.createClass({
+  render: function(){
+    var styles = {
+      uList: {
+        paddingLeft: 0,
+        listStyleType: "none"
+      },
+      listGroup: {
+        margin: '5px 0',
+        borderRadius: 5
+      },
+      removeItem: {
+        fontSize: 20,
+        float: "left",
+        position: "absolute",
+        top: 12,
+        left: 6,
+        cursor: "pointer",
+        color: "rgb(222, 79, 79)"
+      },
+      todoItem: {
+        paddingLeft: 20,
+        fontSize: 17
+      }
+    };
+    var listItems = this.props.items.map(function(item, index){
+      return (
+        <li key={index} className="list-group-item" style={styles.listGroup}>
+          <span
+            className="glyphicon glyphicon-remove"
+            style={styles.removeItem}
+            onClick={this.props.remove.bind(null, index)}>
+          </span>
+          <span style={styles.todoItem}>
+            {item}
+          </span>
+        </li>
+      )
+    }.bind(this));
+  }
+});
+
+module.exports = List;
+```
+If you're still a little confused about map or bind and how we're using them in the code above, flag over a mentor and we'd love to help explain it in more detail.
+
+So now we have a collection of our todolist with each item being wrapped in a ```<li>``` element, we need to display that collection after wrapping it in ```<ul style={styles.uList}>``` tags. 
+
+* return an unordered list from your render method that has a style of ```{styles.uList}``` and inside is our ```{listItems}``` collection. 
+
+That code should look like this.
+
+```javascript
+return (
+  <ul style={styles.uList}>
+    {listItems}
+  </ul>
+)
+```
+
+Again I realize this section was super wordy. If something doesn't make sense, there are mentors here to help. 
+
+###Step 5: ListContainer Component
