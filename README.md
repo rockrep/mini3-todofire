@@ -23,7 +23,8 @@ Notice we haven't included any CSS. Because this project is rather small (and be
 We're only going to need one dependency and two dev dependencies for our project. 
 
 * In that same root location you were at before run ```npm install --save react```. This will grab React from NPM and save it into a newly created node_modules folder in the root of your directory. This also tells your package.json file that React is a dependency that's necessary for the app to run. 
-* Once again in the same root directory run ```npm install --save-dev webpack``` and ```npm install --save-dev jsx-loader``` these commands will install webpack and jsx-loader inside our node_modules folder while letting our package.json file know that both of these are developer dependencies are required to develop but not the run the actual app. 
+* Once again in the same root directory run ```npm install --save-dev webpack``` and ```npm install --save-dev jsx-loader``` these commands will install webpack and jsx-loader inside our node_modules folder while letting our package.json file know that both of these are developer dependencies are required to develop but not the run the actual app.
+* Now what we're going to do is save ```webpack``` globally so we can run the actual webpack command in the terminal. Head over to your terminal and run ```npm install -g webpack``` to save webpack as a global module on your syste.
 
 Now that the basic skeleton of our app is ready, let's head over to our ```webpack.config.js``` file and fill that out.
 
