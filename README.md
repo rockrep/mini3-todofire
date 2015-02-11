@@ -2,7 +2,7 @@ Mini Project 1: Todo List
 ============
 
 ##Objectives
-The purpose of this Mini Project is to get you used to getting started from scratch with React and Webpack. You'll be building a very basic [Todo App](reactweek.com/projects/mini-todolist) in React. This app should be the perfect introduction to the material that was covered earlier. This app will have multiple components, some of those components will have their own state, you'll be passing data down as props, and you'll have your own events. 
+The purpose of this Mini Project is to get you used to getting started from scratch with React and Webpack. You'll be building a very basic [Todo App](http://reactweek.com/projects/mini-todolist) in React. This app should be the perfect introduction to the material that was covered earlier. This app will have multiple components, some of those components will have their own state, you'll be passing data down as props, and you'll have your own events. 
 
 ###Step 1: Create the Structure for Your Application
 * Go ahead and create a folder structure that looks like this including the files. (If you're opinionated about your folder structure, feel free to experiment what works best for you).
