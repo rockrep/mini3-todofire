@@ -68,7 +68,7 @@ Note that our file structure is set up in such a way that our ```app``` folder w
   </body>
 </html>
 ```
-Notice its pretty normal. We've included bootstrap and we're added an element with an id of app. We'll render our App component to this html element later in our App.js file.
+Notice its pretty normal. We've included bootstrap and we've added an element with an id of app. We'll render our App component to this html element later in our App.js file.
 
 Before we start building our app, let's head over to our App.js file and create our first component in order to make sure everything is working correctly. 
 
