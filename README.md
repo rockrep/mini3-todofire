@@ -68,7 +68,7 @@ Note that our file structure is set up in such a way that our ```app``` folder w
   </body>
 </html>
 ```
-Notice its pretty normal. We've included bootstrap and we're added an element with an id of app. We'll render our App component to this html element later in our App.js file.
+Notice its pretty normal. We've included bootstrap and we've added an element with an id of app. We'll render our App component to this html element later in our App.js file.
 
 Before we start building our app, let's head over to our App.js file and create our first component in order to make sure everything is working correctly. 
 
@@ -276,6 +276,37 @@ return (
   </ul>
 )
 ```
+And the final result of the 'List' component should look like this.
+```javascript
+var React = require('react');
+
+var List = React.createClass({
+  render: function(){
+    var styles = {...};
+    var listItems = this.props.items.map(function(item, index){
+      return (
+        <li key={index} className="list-group-item" style={styles.listGroup}>
+          <span
+            className="glyphicon glyphicon-remove"
+            style={styles.removeItem}
+            onClick={this.props.remove.bind(null, index)}>
+          </span>
+          <span style={styles.todoItem}>
+            {item}
+          </span>
+        </li>
+      )
+    }.bind(this));
+    return (
+      <ul style={styles.uList}>
+        {listItems}
+      </ul>
+    )
+  }
+});
+
+module.exports = List;
+```
 
 Again I realize this section was super wordy. If something doesn't make sense, there are mentors here to help. 
 
@@ -285,6 +316,18 @@ The first thing you'll need to do is require react, our AddItem component, and o
 
 * Require react, the AddItem component, and the List component.
 * Create a component called ListContainer and then use ```module.exports``` to export it at the end of the file.
+
+```javascript
+var React = require('react');
+var AddItem = require('./AddItem');
+var List = require('./List');
+
+var ListContainer = React.createClass({
+    //Nothing here yet
+});
+
+module.exports = ListContainer;
+```
 
 This component is going to have keep track of our overall todo list array. 
 
@@ -387,4 +430,4 @@ React.render(
 
 That's it! If you've had webpack running head over to your browser and load the index.html page. You should have a very basic todoapp running with React. 
 
-If this mini project was a little slow for you, good. That's the point. As mentioned before, the Mini Projects are supposed to be very hand holdy while the actual projects aren't. If you're on the opposite end and you're struggling with anything we've covered or talked about, now would be a really good time to flag down a mentor and get some extra help. We're here to help you, use us.
+If this mini project was a little slow for you, good. That's the point. As mentioned before, the Mini Projects are supposed to be very hand-holdy while the actual projects aren't. If you're on the opposite end and you're struggling with anything we've covered or talked about, now would be a really good time to flag down a mentor and get some extra help. We're here to help you, use us.
