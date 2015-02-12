@@ -317,6 +317,18 @@ The first thing you'll need to do is require react, our AddItem component, and o
 * Require react, the AddItem component, and the List component.
 * Create a component called ListContainer and then use ```module.exports``` to export it at the end of the file.
 
+```javascript
+var React = require('react');
+var AddItem = require('./AddItem');
+var List = require('./List');
+
+var ListContainer = React.createClass({
+    //Nothing here yet
+});
+
+module.exports = ListContainer;
+```
+
 This component is going to have keep track of our overall todo list array. 
 
 * use ```getInitialState``` and return a ```list``` property whose value is an empty array.
