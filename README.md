@@ -430,4 +430,4 @@ React.render(
 
 That's it! If you've had webpack running head over to your browser and load the index.html page. You should have a very basic todoapp running with React. 
 
-If this mini project was a little slow for you, good. That's the point. As mentioned before, the Mini Projects are supposed to be very hand holdy while the actual projects aren't. If you're on the opposite end and you're struggling with anything we've covered or talked about, now would be a really good time to flag down a mentor and get some extra help. We're here to help you, use us.
+If this mini project was a little slow for you, good. That's the point. As mentioned before, the Mini Projects are supposed to be very hand-holdy while the actual projects aren't. If you're on the opposite end and you're struggling with anything we've covered or talked about, now would be a really good time to flag down a mentor and get some extra help. We're here to help you, use us.
