@@ -127,14 +127,14 @@ We're going to start out with our most child components and work our way back ou
 
 The purpose of this component is it's going to keep track of its own state which is going to be just the input box value. Whenever someone types in a new value into this input box and hits enter, ```AddItem``` will invoke a method that will be passed to it from its parent component (as props) and we'll pass that method the current state of the component (or the new item we wan to add).
 
-* use ```getInitialState``` to set an initial state of your component with a ```newItem``` property whos value is an empty string
+* use ```getInitialState``` to set an initial state of your component with a ```newItem``` property whose value is an empty string
 * Create a ```handleChange``` method that is going to use ```setState``` to update ```newItem``` with whatever is in the input box
 * Create a ```handleSubmit``` method that will be called on ```onKeyDown``` that checks to see if the current key pressed was the enter key (```e.keyCode === 13```) and if it was call the ```add``` method on AddItem's props object and pass it the current state of ```newItem```. Once you invoke ```add``` then reset the newItem state to an empty string.
 
 Now we have a few helper methods the only thing left to do is to user render to set up what the UI for this component will look and behave like. 
 
 * Create a render method that returns an opening and closing ```<div>``` tag. 
-* Inside the <div> create an input box with a ```className``` of "form-control" and whos properties are tied to the state and helper methods we created above. **hint: you'll add a ```value```, ```onKeyDown```, and ```onChange``` property to your input box.
+* Inside the <div> create an input box with a ```className``` of "form-control" and whose properties are tied to the state and helper methods we created above. **hint: you'll add a ```value```, ```onKeyDown```, and ```onChange``` property to your input box.
 
 Check your console and see if there are any errors. If there aren't, you're good to move to the next step. What might happen is once we get everything wired up you'll discover a few bugs in your ```AddItem``` component, but you can fix those later. 
 
@@ -203,14 +203,14 @@ var styles = {
   }
 };
 ```
-All this is is it's the styling for this component. 
+This is just the styling for this component. 
 
-Now that we have our render method and basic styles, let's create an array of ```<li>``` tag that contain a X icon to delete the item and also the items text. Usually how you would do this is to have a for loop which loops over every item in the list. With React however it's common practice to use the built in map method. All map does is it iterates over a list and returns you an array after modifying every item in that list. As mentioned earlier we'll use map to create our list of ```<li>``` tags for our list.
+Now that we have our render method and basic styles, let's create an array of ```<li>``` tag that contains an X icon to delete the item and also the items text. Usually how you would do this is to have a for loop which loops over every item in the list. With React however it's common practice to use the built in map method. All map does is it iterates over a list and returns you an array after modifying every item in that list. As mentioned earlier we'll use map to create our list of ```<li>``` tags for our list.
 
 * create a variable called ```listItems``` which is going to be the result of mapping over ```this.props.items```. A few tips
   - Your ```<li>``` element will need to have a ```className``` of ```list-group-item``` and a style of ```{styles.listGroup}```.
   - Inside the ```<li>``` tag you'll have two span elements. The first one will have a className of ```glyphicon glyphicon-remove``` a ```style``` attribute of ```{styles.removeItem}``` and a ```onClick``` handler which will be bound to a ```remove``` method which is going to be coming in as a prop from the parent component. You'll need to use ```bind``` and pass in ```null``` and the ```index``` from the paremeters of your map function. The second span element will have a ```style``` of ```{styles.todoItem}``` and will just have the actual ```{item}``` itself inside the span. 
-  - The last gotcha is that when we use map, they keyword ```this``` is no longer bound to what it was initially. In order to fix this you'll have to add ```.bind(this)``` on the end of your map invokation in order to keep the keyword ```this``` bound to what it is bound to outside of the map function. 
+  - The last gotcha is that when we use map, the keyword ```this``` is no longer bound to what it was initially. In order to fix this you'll have to add ```.bind(this)``` on the end of your map invokation in order to keep the keyword ```this``` bound to what it is bound to outside of the map function. 
 
 I realize all of that was super wordy. Here's what you're List.js file should look like up to this point. 
 
@@ -402,7 +402,7 @@ Now is the easy part. Our App component is just going to be where we wrap our ``
 
 * Require ```react``` and ```ListContainer```.
 * Create a component called ```App``` then outside of the component use ```React.render``` to render ```<App />``` to the element with an id of ```app```. 
-* Create a render method which has two nested divs. The first div should have a ```className``` of ```container``` and the nested one should have a ```className``` or ```row```. That's just for our bootstrap styling
+* Create a render method which has two nested divs. The first div should have a ```className``` of ```container``` and the nested one should have a ```className``` of ```row```. That's just for our bootstrap styling
 * Inside of ```row``` render the ```ListContainer``` component.
 
 Your final App.js file should look like this.
