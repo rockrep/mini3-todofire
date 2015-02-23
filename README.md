@@ -2,7 +2,7 @@ Mini Project 1: Todo List
 ============
 
 ##Objectives
-The purpose of this Mini Project is to get you used to getting started from scratch with React and Webpack. You'll be building a very basic [Todo App](http://reactweek.com/projects/mini-todolist) in React. This app should be the perfect introduction to the material that was covered earlier. This app will have multiple components, some of those components will have their own state, you'll be passing data down as props, and you'll have your own events. 
+The purpose of this Mini Project is to get you used to getting started from scratch with React and Webpack. You'll be building a very basic [Todo App](http://reactweek.com/projects/mini-todolist) in React. This app should be the perfect introduction to the material that was covered earlier. This app will have multiple components, some of those components will have their own state, you'll be passing data down as props, and you'll have your own events.
 
 ###Step 1: Create the Structure for Your Application
 * Go ahead and create a folder structure that looks like this including the files. (If you're opinionated about your folder structure, feel free to experiment what works best for you).
@@ -16,13 +16,13 @@ The purpose of this Mini Project is to get you used to getting started from scra
 ├── public/
 │   ├── index.html
 ```
-Notice we haven't included any CSS. Because this project is rather small (and because the project later today is going to build off of this one so we're going for maximum composition), all of my CSS is going to be JavaScript Objects which live inside the component which is using that specific style. 
+Notice we haven't included any CSS. Because this project is rather small (and because the project later today is going to build off of this one so we're going for maximum composition), all of my CSS is going to be JavaScript Objects which live inside the component which is using that specific style.
 * Now that your folder structure is set up, let's go ahead and interactively create a package.json file so we can specify which npm packages we'll need in our app. *If you are unfamiliar with NPM, flag down a mentor and we'll come over and expound on this topic*.
 * cd over to the root of your project and run ```npm init```. This will guide you through some steps that aren't too important. Once you're done with the steps you'll have a package.json file in your root directory.
 
-We're only going to need one dependency and two dev dependencies for our project. 
+We're only going to need one dependency and two dev dependencies for our project.
 
-* In that same root location you were at before run ```npm install --save react```. This will grab React from NPM and save it into a newly created node_modules folder in the root of your directory. This also tells your package.json file that React is a dependency that's necessary for the app to run. 
+* In that same root location you were at before run ```npm install --save react```. This will grab React from NPM and save it into a newly created node_modules folder in the root of your directory. This also tells your package.json file that React is a dependency that's necessary for the app to run.
 * Once again in the same root directory run ```npm install --save-dev webpack``` and ```npm install --save-dev jsx-loader``` these commands will install webpack and jsx-loader inside our node_modules folder while letting our package.json file know that both of these are developer dependencies are required to develop but not the run the actual app.
 * Now what we're going to do is save ```webpack``` globally so we can run the actual webpack command in the terminal. Head over to your terminal and run ```npm install -g webpack``` to save webpack as a global module on your system.
 
@@ -30,14 +30,14 @@ Now that the basic skeleton of our app is ready, let's head over to our ```webpa
 
 
 ###Step 2: Configuring Webpack
-As we talked about in the lecture, Webpack is a super powerful tool that can do a lot. Starting out though, we'll just use Webpack to transform our JSX to JS. 
+As we talked about in the lecture, Webpack is a super powerful tool that can do a lot. Starting out though, we'll just use Webpack to transform our JSX to JS.
 
-We're going to give our Webpack config file three things. 
+We're going to give our Webpack config file three things.
   - The entry point where our main parent component is located.
   - Our JSX loader which will do the converting from JSX to JS
   - An output path of where to put our new bundled/transformed React code.
 
-* Head over to your webpack.config.js file and add the following code. 
+* Head over to your webpack.config.js file and add the following code.
 ```javascript
 module.exports = {
   entry: "./app/App.js",
@@ -51,7 +51,7 @@ module.exports = {
   }
 };
 ```
-Note that our file structure is set up in such a way that our ```app``` folder will be used for our React components and webpack will take those components, transform them, bundle them, and output them to our public folder where our ```index.html``` file is located. 
+Note that our file structure is set up in such a way that our ```app``` folder will be used for our React components and webpack will take those components, transform them, bundle them, and output them to our public folder where our ```index.html``` file is located.
 
 ###Step 3: Our First Component
 * Head over to your index.html page and add the following code.
@@ -70,13 +70,13 @@ Note that our file structure is set up in such a way that our ```app``` folder w
 ```
 Notice its pretty normal. We've included bootstrap and we've added an element with an id of app. We'll render our App component to this html element later in our App.js file.
 
-Before we start building our app, let's head over to our App.js file and create our first component in order to make sure everything is working correctly. 
+Before we start building our app, let's head over to our App.js file and create our first component in order to make sure everything is working correctly.
 
 * In App.js require 'react' and save it into a variable called React.
 * Create a component that all is does is render "Hello World!" to the page and save that into a variable called ```App```
 * Now, use ```React.render``` to render your ```<App />``` component to the app element in your index.html page.
-* Head over to your terminal and tell webpack to build and watch your files using ```webpack -w```. 
-* Open up your ```index.html``` and verify that you see ```Hello World!``` and you're getting no errors in the console. 
+* Head over to your terminal and tell webpack to build and watch your files using ```webpack -w```.
+* Open up your ```index.html``` and verify that you see ```Hello World!``` and you're getting no errors in the console.
 
 If you are getting errors, debug. If you get stuck, flag down a mentor.
 
@@ -102,9 +102,9 @@ React.render(
 ```
 
 ###Step 4: Component Overview and List Component
-Now that our build process is up and running, let's crank out the rest of our components. 
+Now that our build process is up and running, let's crank out the rest of our components.
 
-We're going to be making four components all together. Here is a list of all of them with their purpose and how they fit into our app hierarchy. 
+We're going to be making four components all together. Here is a list of all of them with their purpose and how they fit into our app hierarchy.
 ```
 ├── App
 │   ├── ListContainer
@@ -112,10 +112,10 @@ We're going to be making four components all together. Here is a list of all of 
 │   ├-─ ├── List
 ```
 
-Visually represented that looks like this. 
+Visually represented that looks like this.
 
 ![React Components Visualized](http://tylermcginnis.com/ReactWeek/todo-react-components.png)
-The darker the red the more nested the components are. 
+The darker the red the more nested the components are.
  - App is our overall component
  - ListContainer is the component of our todolist and the lists title
  - AddItem is the component of the input box
@@ -131,14 +131,14 @@ The purpose of this component is it's going to keep track of its own state which
 * Create a ```handleChange``` method that is going to use ```setState``` to update ```newItem``` with whatever is in the input box
 * Create a ```handleSubmit``` method that will be called on ```onKeyDown``` that checks to see if the current key pressed was the enter key (```e.keyCode === 13```) and if it was call the ```add``` method on AddItem's props object and pass it the current state of ```newItem```. Once you invoke ```add``` then reset the newItem state to an empty string.
 
-Now we have a few helper methods the only thing left to do is to user render to set up what the UI for this component will look and behave like. 
+Now we have a few helper methods the only thing left to do is to user render to set up what the UI for this component will look and behave like.
 
-* Create a render method that returns an opening and closing ```<div>``` tag. 
+* Create a render method that returns an opening and closing ```<div>``` tag.
 * Inside the <div> create an input box with a ```className``` of "form-control" and whose properties are tied to the state and helper methods we created above. **hint: you'll add a ```value```, ```onKeyDown```, and ```onChange``` property to your input box.
 
-Check your console and see if there are any errors. If there aren't, you're good to move to the next step. What might happen is once we get everything wired up you'll discover a few bugs in your ```AddItem``` component, but you can fix those later. 
+Check your console and see if there are any errors. If there aren't, you're good to move to the next step. What might happen is once we get everything wired up you'll discover a few bugs in your ```AddItem``` component, but you can fix those later.
 
-Your ```AddItem.js``` file should now look like this, 
+Your ```AddItem.js``` file should now look like this,
 ```javascript
 var React = require('react');
 
@@ -177,7 +177,7 @@ module.exports = AddItem;
 
 The next component we're going to build is our List component. Our List component is going to be our unordered list of every item in our todo list. Rememeber, the component which is managing the state of our list is ListComponent's parent component (ListContainer). From our ListContainer component we'll pass in the todolist as props to our List component. Our CSS will be entirely contained as an object in this component. Let's go ahead and add that now.
 
-* Create a ```render``` method. Inside that render method go ahead and add this object as a variable inside of ```render```. 
+* Create a ```render``` method. Inside that render method go ahead and add this object as a variable inside of ```render```.
 ```javascvript
 var styles = {
   uList: {
@@ -203,16 +203,16 @@ var styles = {
   }
 };
 ```
-This is just the styling for this component. 
+This is just the styling for this component.
 
 Now that we have our render method and basic styles, let's create an array of ```<li>``` tag that contains an X icon to delete the item and also the items text. Usually how you would do this is to have a for loop which loops over every item in the list. With React however it's common practice to use the built in map method. All map does is it iterates over a list and returns you an array after modifying every item in that list. As mentioned earlier we'll use map to create our list of ```<li>``` tags for our list.
 
 * create a variable called ```listItems``` which is going to be the result of mapping over ```this.props.items```. A few tips
   - Your ```<li>``` element will need to have a ```className``` of ```list-group-item``` and a style of ```{styles.listGroup}```.
-  - Inside the ```<li>``` tag you'll have two span elements. The first one will have a className of ```glyphicon glyphicon-remove``` a ```style``` attribute of ```{styles.removeItem}``` and a ```onClick``` handler which will be bound to a ```remove``` method which is going to be coming in as a prop from the parent component. You'll need to use ```bind``` and pass in ```null``` and the ```index``` from the paremeters of your map function. The second span element will have a ```style``` of ```{styles.todoItem}``` and will just have the actual ```{item}``` itself inside the span. 
-  - The last gotcha is that when we use map, the keyword ```this``` is no longer bound to what it was initially. In order to fix this you'll have to add ```.bind(this)``` on the end of your map invokation in order to keep the keyword ```this``` bound to what it is bound to outside of the map function. 
+  - Inside the ```<li>``` tag you'll have two span elements. The first one will have a className of ```glyphicon glyphicon-remove``` a ```style``` attribute of ```{styles.removeItem}``` and a ```onClick``` handler which will be bound to a ```remove``` method which is going to be coming in as a prop from the parent component. You'll need to use ```bind``` and pass in ```null``` and the ```index``` from the paremeters of your map function. The second span element will have a ```style``` of ```{styles.todoItem}``` and will just have the actual ```{item}``` itself inside the span.
+  - The last gotcha is that when we use map, the keyword ```this``` is no longer bound to what it was initially. In order to fix this you'll have to add ```.bind(this)``` on the end of your map invokation in order to keep the keyword ```this``` bound to what it is bound to outside of the map function.
 
-I realize all of that was super wordy. Here's what you're List.js file should look like up to this point. 
+I realize all of that was super wordy. Here's what you're List.js file should look like up to this point.
 
 ```javascript
 var React = require('react');
@@ -263,9 +263,9 @@ module.exports = List;
 ```
 If you're still a little confused about map or bind and how we're using them in the code above, flag over a mentor and we'd love to help explain it in more detail.
 
-So now we have a collection of our todolist with each item being wrapped in a ```<li>``` element, we need to display that collection after wrapping it in ```<ul style={styles.uList}>``` tags. 
+So now we have a collection of our todolist with each item being wrapped in a ```<li>``` element, we need to display that collection after wrapping it in ```<ul style={styles.uList}>``` tags.
 
-* return an unordered list from your render method that has a style of ```{styles.uList}``` and inside is our ```{listItems}``` collection. 
+* return an unordered list from your render method that has a style of ```{styles.uList}``` and inside is our ```{listItems}``` collection.
 
 That code should look like this.
 
@@ -308,7 +308,7 @@ var List = React.createClass({
 module.exports = List;
 ```
 
-Again I realize this section was super wordy. If something doesn't make sense, there are mentors here to help. 
+Again I realize this section was super wordy. If something doesn't make sense, there are mentors here to help.
 
 ###Step 6: ListContainer Component
 
@@ -329,7 +329,7 @@ var ListContainer = React.createClass({
 module.exports = ListContainer;
 ```
 
-This component is going to have keep track of our overall todo list array. 
+This component is going to have keep track of our overall todo list array.
 
 * use ```getInitialState``` and return a ```list``` property whose value is an empty array.
 
@@ -338,18 +338,16 @@ Now that our initial list is set up, we're going to have two helper methods. One
 * create the ```handleAddItem``` method which takes in an item as its parameter and then resets the ```list``` state adding that new item to the list. **remember, you should treat your state as if it's immutable. Don't do this ```this.state.list.push(newItem)```, instead play with using ```this.setState```**.
 * create a ```handleRemoveItem``` method that takes in an index then splices that index out of our ```list``` state. **again don't all splice directly on ```this.state.list```, instead create a reference to ```this.state.list``` and splice that then reset the ```list``` state with that new spliced array.
 
-Now that we have our helper methods set up we need to use ```render``` to specify what the UI will look like. I'll give you the intial UI at first because it's a lot of bootstrap markup then you can render the ```AddItem``` and ```List``` component. 
+Now that we have our helper methods set up we need to use ```render``` to specify what the UI will look like. I'll give you the intial UI at first because it's a lot of bootstrap markup then you can render the ```AddItem``` and ```List``` component.
 
 ```html
   render: function(){
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-6 col-md-offset-3">
-            <h3 className="text-center"> Todo List </h3>
-            <!-- AddItem goes here. * Make sure you pass it the handleAddItem method we made above as 'add' -->
-            <!-- List goes here. * Make sure you pass it the list as 'items' and the handleRemoveItem as remove -->
-          </div>
+      <div className="col-sm-6 col-md-offset-3">
+        <div className="col-sm-12">
+          <h3 className="text-center"> Todo List </h3>
+          <!-- AddItem goes here. * Make sure you pass it the handleAddItem method we made above as 'add' -->
+          <!-- List goes here. * Make sure you pass it the list as 'items' and the handleRemoveItem as remove -->
         </div>
       </div>
     )
@@ -398,10 +396,10 @@ module.exports = ListContainer;
 
 ###Step 7: App Component
 
-Now is the easy part. Our App component is just going to be where we wrap our ```ListContainer``` component in a few bootstrap divs and then use ```React.render``` to render our App to our ```#app``` element. 
+Now is the easy part. Our App component is just going to be where we wrap our ```ListContainer``` component in a few bootstrap divs and then use ```React.render``` to render our App to our ```#app``` element.
 
 * Require ```react``` and ```ListContainer```.
-* Create a component called ```App``` then outside of the component use ```React.render``` to render ```<App />``` to the element with an id of ```app```. 
+* Create a component called ```App``` then outside of the component use ```React.render``` to render ```<App />``` to the element with an id of ```app```.
 * Create a render method which has two nested divs. The first div should have a ```className``` of ```container``` and the nested one should have a ```className``` of ```row```. That's just for our bootstrap styling
 * Inside of ```row``` render the ```ListContainer``` component.
 
@@ -428,6 +426,6 @@ React.render(
 )
 ```
 
-That's it! If you've had webpack running head over to your browser and load the index.html page. You should have a very basic todoapp running with React. 
+That's it! If you've had webpack running head over to your browser and load the index.html page. You should have a very basic todoapp running with React.
 
 If this mini project was a little slow for you, good. That's the point. As mentioned before, the Mini Projects are supposed to be very hand-holdy while the actual projects aren't. If you're on the opposite end and you're struggling with anything we've covered or talked about, now would be a really good time to flag down a mentor and get some extra help. We're here to help you, use us.
