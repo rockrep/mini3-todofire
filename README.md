@@ -210,7 +210,7 @@ Now that we have our render method and basic styles, let's create an array of ``
 * create a variable called ```listItems``` which is going to be the result of mapping over ```this.props.items```. A few tips
   - Your ```<li>``` element will need to have a ```className``` of ```list-group-item``` and a style of ```{styles.listGroup}```.
   - Inside the ```<li>``` tag you'll have two span elements. The first one will have a className of ```glyphicon glyphicon-remove``` a ```style``` attribute of ```{styles.removeItem}``` and a ```onClick``` handler which will be bound to a ```remove``` method which is going to be coming in as a prop from the parent component. You'll need to use ```bind``` and pass in ```null``` and the ```index``` from the paremeters of your map function. The second span element will have a ```style``` of ```{styles.todoItem}``` and will just have the actual ```{item}``` itself inside the span.
-  - The last gotcha is that when we use map, the keyword ```this``` is no longer bound to what it was initially. In order to fix this you'll have to add ```.bind(this)``` on the end of your map invokation in order to keep the keyword ```this``` bound to what it is bound to outside of the map function.
+  - The last gotcha is that when we use map, the keyword ```this``` is no longer bound to what it was initially. In order to fix this you'll have to add ```.bind(this)``` on the end of your map invocation in order to keep the keyword ```this``` bound to what it is bound to outside of the map function.
 
 I realize all of that was super wordy. Here's what you're List.js file should look like up to this point.
 
