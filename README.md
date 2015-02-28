@@ -329,7 +329,7 @@ var ListContainer = React.createClass({
 module.exports = ListContainer;
 ```
 
-This component is going to have keep track of our overall todo list array.
+This component is going to keep track of our overall todo list array.
 
 * use ```getInitialState``` and return a ```list``` property whose value is an empty array.
 
