@@ -68,15 +68,15 @@ Note that our file structure is set up in such a way that our ```app``` folder w
   </body>
 </html>
 ```
-Notice its pretty normal. We've included bootstrap and we've added an element with an id of app. We'll render our App component to this html element later in our App.js file.
+Notice it's pretty normal. We've included bootstrap and we've added an element with an id of app. We'll render our App component to this html element later in our App.js file.
 
 Before we start building our app, let's head over to our App.js file and create our first component in order to make sure everything is working correctly.
 
 * In App.js require 'react' and save it into a variable called React.
-* Create a component that all is does is render "Hello World!" to the page and save that into a variable called ```App```
+* Create a component that all it does is render "Hello World!" to the page and save that into a variable called ```App```
 * Now, use ```React.render``` to render your ```<App />``` component to the app element in your index.html page.
 * Head over to your terminal and tell webpack to build and watch your files using ```webpack -w```.
-* Open up your ```index.html``` and verify that you see ```Hello World!``` and you're getting no errors in the console.
+* Open up your ```index.html``` in the broowser and verify that you see ```Hello World!``` and you're getting no errors in the console.
 
 If you are getting errors, debug. If you get stuck, flag down a mentor.
 
@@ -117,7 +117,7 @@ Visually represented that looks like this.
 ![React Components Visualized](http://tylermcginnis.com/ReactWeek/todo-react-components.png)
 The darker the red the more nested the components are.
  - App is our overall component
- - ListContainer is the component of our todolist and the lists title
+ - ListContainer is the component of our todolist and the list's title
  - AddItem is the component of the input box
  - List is the component of every item in the list
 
@@ -129,12 +129,12 @@ The purpose of this component is it's going to keep track of its own state which
 
 * use ```getInitialState``` to set an initial state of your component with a ```newItem``` property whose value is an empty string
 * Create a ```handleChange``` method that is going to use ```setState``` to update ```newItem``` with whatever is in the input box
-* Create a ```handleSubmit``` method that will be called on ```onKeyDown``` that checks to see if the current key pressed was the enter key (```e.keyCode === 13```) and if it was call the ```add``` method on AddItem's props object and pass it the current state of ```newItem```. Once you invoke ```add``` then reset the newItem state to an empty string.
+* Create a ```handleSubmit``` method that will be called on ```onKeyDown``` that checks to see if the current key pressed was the enter key (```e.keyCode === 13```) and if it was, call the ```add``` method on AddItem's props object and pass it the current state of ```newItem```. Once you invoke ```add``` then reset the newItem state to an empty string.
 
-Now we have a few helper methods the only thing left to do is to user render to set up what the UI for this component will look and behave like.
+Now we have a few helper methods the only thing left to do is to use render to set up what the UI for this component will look and behave like.
 
 * Create a render method that returns an opening and closing ```<div>``` tag.
-* Inside the <div> create an input box with a ```className``` of "form-control" and whose properties are tied to the state and helper methods we created above. **hint: you'll add a ```value```, ```onKeyDown```, and ```onChange``` property to your input box.
+* Inside the ```<div>``` create an input box with a ```className``` of "form-control" and whose properties are tied to the state and helper methods we created above. **hint: you'll add a ```value```, ```onKeyDown```, and ```onChange``` property to your input box.
 
 Check your console and see if there are any errors. If there aren't, you're good to move to the next step. What might happen is once we get everything wired up you'll discover a few bugs in your ```AddItem``` component, but you can fix those later.
 
