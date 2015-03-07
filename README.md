@@ -134,7 +134,7 @@ The purpose of this component is it's going to keep track of its own state which
 Now we have a few helper methods the only thing left to do is to use render to set up what the UI for this component will look and behave like.
 
 * Create a render method that returns an opening and closing ```<div>``` tag.
-* Inside the ```<div>``` create an input box with a ```className``` of "form-control" and whose properties are tied to the state and helper methods we created above. **hint: you'll add a ```value```, ```onKeyDown```, and ```onChange``` property to your input box.
+* Inside the ```<div>``` create an input box with a type of ```text``` a ```className``` of ```form-control``` and whose properties are tied to the state and helper methods we created above. **hint: you'll add a ```value```, ```onKeyDown```, and ```onChange``` property to your input box.
 
 Check your console and see if there are any errors. If there aren't, you're good to move to the next step. What might happen is once we get everything wired up you'll discover a few bugs in your ```AddItem``` component, but you can fix those later.
 
