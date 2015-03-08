@@ -182,6 +182,7 @@ module.exports = AddItem;
 
 The next component we're going to build is our List component. Our List component is going to be our unordered list of every item in our todo list. Rememeber, the component which is managing the state of our list is ListComponent's parent component (ListContainer). From our ListContainer component we'll pass in the todolist as props to our List component. Our CSS will be entirely contained as an object in this component. Let's go ahead and add that now.
 
+* Head over to  yuor ```List.js``` file.
 * Create a ```render``` method. Inside that render method go ahead and add this object as a variable inside of ```render```.
 ```javascvript
 var styles = {
@@ -210,10 +211,10 @@ var styles = {
 ```
 This is just the styling for this component.
 
-Now that we have our render method and basic styles, let's create an array of ```<li>``` tag that contains an X icon to delete the item and also the items text. Usually how you would do this is to have a for loop which loops over every item in the list. With React however it's common practice to use the built in map method. All map does is it iterates over a list and returns you an array after modifying every item in that list. As mentioned earlier we'll use map to create our list of ```<li>``` tags for our list.
+Now that we have our render method and basic styles, let's create an array of ```<li>``` elements that contains an X icon to delete the item and also the item's text. Usually how you would do this is to have a for loop which loops over every item in the list. With React however it's common practice to use the built in map method. All map does is it iterates over a list and returns you an array after modifying every item in that list. As mentioned earlier we'll use map to create our list of ```<li>``` tags for our list.
 
-* create a variable called ```listItems``` which is going to be the result of mapping over ```this.props.items```. A few tips
-  - Your ```<li>``` element will need to have a ```className``` of ```list-group-item``` and a style of ```{styles.listGroup}```.
+* create a variable called ```listItems``` as a variable inside of the render method which is going to be the result of mapping over ```this.props.items```. A few tips
+  - Your ```<li>``` element will need to have a ```className``` of ```list-group-item``` a style of ```{styles.listGroup}```, and a key of ```index``` which is the index of the map you're currently iterating over and can be accessed as the second paramter of your map.
   - Inside the ```<li>``` tag you'll have two span elements. The first one will have a className of ```glyphicon glyphicon-remove``` a ```style``` attribute of ```{styles.removeItem}``` and a ```onClick``` handler which will be bound to a ```remove``` method which is going to be coming in as a prop from the parent component. You'll need to use ```bind``` and pass in ```null``` and the ```index``` from the paremeters of your map function. The second span element will have a ```style``` of ```{styles.todoItem}``` and will just have the actual ```{item}``` itself inside the span.
   - The last gotcha is that when we use map, the keyword ```this``` is no longer bound to what it was initially. In order to fix this you'll have to add ```.bind(this)``` on the end of your map invocation in order to keep the keyword ```this``` bound to what it is bound to outside of the map function.
 
@@ -319,6 +320,7 @@ Again I realize this section was super wordy. If something doesn't make sense, t
 
 The first thing you'll need to do is require react, our AddItem component, and our List component because we'll be rendering both of those inside our render method.
 
+* Head over to ```ListContainer.js```
 * Require react, the AddItem component, and the List component.
 * Create a component called ListContainer and then use ```module.exports``` to export it at the end of the file.
 
@@ -341,7 +343,7 @@ This component is going to keep track of our overall todo list array.
 Now that our initial list is set up, we're going to have two helper methods. One called ```handleAddItem``` which takes in a new item and adds that to our ```list``` array and the other a ```handleRemoveItem``` which takes in an index and removes that specific index from our ```list``` array.
 
 * create the ```handleAddItem``` method which takes in an item as its parameter and then resets the ```list``` state adding that new item to the list. **remember, you should treat your state as if it's immutable. Don't do this ```this.state.list.push(newItem)```, instead use ```this.setState```**.
-* create a ```handleRemoveItem``` method that takes in an index then splices that index out of our ```list``` state. **again don't all splice directly on ```this.state.list```, instead create a reference to ```this.state.list``` and splice that then reset the ```list``` state with that new spliced array.
+* create a ```handleRemoveItem``` method that takes in an index then splices that index out of our ```list``` state. *again don't all splice directly on ```this.state.list```, instead create a reference to ```this.state.list``` and splice that then reset the ```list``` state with that new spliced array.*
 
 
 Now that we have our helper methods set up we need to use ```render``` to specify what the UI will look like. I'll give you the intial UI at first because it's a lot of bootstrap markup then you can render the ```AddItem``` and ```List``` component.
@@ -352,8 +354,8 @@ Now that we have our helper methods set up we need to use ```render``` to specif
       <div className="col-sm-6 col-md-offset-3">
         <div className="col-sm-12">
           <h3 className="text-center"> Todo List </h3>
-          <!-- AddItem goes here. * Make sure you pass it the handleAddItem method we made above as 'add' -->
-          <!-- List goes here. * Make sure you pass it the list as 'items' and the handleRemoveItem as remove -->
+          {/* AddItem goes here. * Make sure you pass it the handleAddItem method we made above as 'add' */}
+          {/* List goes here. * Make sure you pass it the list as 'items' and the handleRemoveItem as remove */}
         </div>
       </div>
     )
@@ -404,9 +406,8 @@ module.exports = ListContainer;
 
 Now is the easy part. Our App component is just going to be where we wrap our ```ListContainer``` component in a few bootstrap divs and then use ```React.render``` to render our App to our ```#app``` element.
 
-* Require ```react``` and ```ListContainer```.
-* Create a component called ```App``` then outside of the component use ```React.render``` to render ```<App />``` to the element with an id of ```app```.
-* Create a render method which has two nested divs. The first div should have a ```className``` of ```container``` and the nested one should have a ```className``` of ```row```. That's just for our bootstrap styling
+* Require where you required ```react```, require ```ListContainer```.
+* Create a render method which has two ```<divs``` one nested in the other. The parent div should have a ```className``` of ```container``` and the nested one should have a ```className``` of ```row```. That's just for our bootstrap styling
 * Inside of ```row``` render the ```ListContainer``` component.
 
 Your final App.js file should look like this.
