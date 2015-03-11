@@ -1,5 +1,4 @@
-//var React = require('react');
-var React = require('./../public/common').react;
+var React = require('react');
 
 var List = React.createClass({
 

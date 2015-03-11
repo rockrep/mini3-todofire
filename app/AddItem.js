@@ -1,4 +1,4 @@
-var React = require('./../public/common').react;
+var React = require('react');
 
 var AddItem = React.createClass({
   getInitialState: function() {

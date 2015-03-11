@@ -10,8 +10,5 @@ module.exports = {
       {test: /\.js$/, loader: 'jsx-loader'}
     ]
   },
-  //plugins: [
-    //new webpack.optimize.CommonsChunkPlugin('build/common.js')
-  //],
   devtool: 'source-map'
 };
